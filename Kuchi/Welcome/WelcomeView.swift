@@ -11,7 +11,6 @@ struct WelcomeView: View {
     var body: some View {
         ZStack {
             WelcomeBackgroundImage()
-            
             WelcomeMessageView()
         }
     }
