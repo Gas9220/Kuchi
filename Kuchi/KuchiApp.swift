@@ -17,15 +17,16 @@ struct KuchiApp: App {
 
     var body: some Scene {
         WindowGroup {
-            RegisterView()
+            StarterView()
                 .environmentObject(userManager)
         }
     }
 }
 
-#Preview {
-    let userManager = UserManager(name: "Tom")
-
-    return RegisterView()
-        .environmentObject(userManager)
+struct KuchiApp_Previews: PreviewProvider {
+    static let userManager = UserManager(name: "Tom")
+    static var previews: some View {
+        StarterView()
+            .environmentObject(userManager)
+    }
 }
