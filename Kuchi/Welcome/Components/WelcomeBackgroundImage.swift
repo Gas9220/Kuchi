@@ -9,13 +9,16 @@ import SwiftUI
 
 struct WelcomeBackgroundImage: View {
     var body: some View {
-        Image("welcome-background", bundle: nil)
-            .resizable()
-            .aspectRatio(1 / 1, contentMode: .fill)
-            .ignoresSafeArea()
-            .saturation(0.5)
-            .blur(radius: 5)
-            .opacity(0.08)
+        GeometryReader { geometry in
+            Image("welcome-background", bundle: nil)
+                .resizable()
+                .aspectRatio(1 / 1, contentMode: .fill)
+                .frame(width: geometry.size.width, alignment: .center)
+                .ignoresSafeArea()
+                .saturation(0.5)
+                .blur(radius: 5)
+                .opacity(0.08)
+        }
     }
 }
 
