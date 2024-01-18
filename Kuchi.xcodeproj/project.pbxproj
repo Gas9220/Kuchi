@@ -11,6 +11,7 @@
 		6B0E60712B591F050060D8B5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0E60702B591F050060D8B5 /* ContentView.swift */; };
 		6B0E60732B591F070060D8B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B0E60722B591F070060D8B5 /* Assets.xcassets */; };
 		6B0E60772B591F070060D8B5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B0E60762B591F070060D8B5 /* Preview Assets.xcassets */; };
+		6B0E607E2B5920200060D8B5 /* jp.json in Resources */ = {isa = PBXBuildFile; fileRef = 6B0E607D2B5920200060D8B5 /* jp.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		6B0E60722B591F070060D8B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6B0E60742B591F070060D8B5 /* Kuchi.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Kuchi.entitlements; sourceTree = "<group>"; };
 		6B0E60762B591F070060D8B5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6B0E607D2B5920200060D8B5 /* jp.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jp.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,7 +56,7 @@
 			children = (
 				6B0E606E2B591F050060D8B5 /* KuchiApp.swift */,
 				6B0E60702B591F050060D8B5 /* ContentView.swift */,
-				6B0E60722B591F070060D8B5 /* Assets.xcassets */,
+				6B0E607F2B5920260060D8B5 /* Resources */,
 				6B0E60742B591F070060D8B5 /* Kuchi.entitlements */,
 				6B0E60752B591F070060D8B5 /* Preview Content */,
 			);
@@ -67,6 +69,15 @@
 				6B0E60762B591F070060D8B5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6B0E607F2B5920260060D8B5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6B0E60722B591F070060D8B5 /* Assets.xcassets */,
+				6B0E607D2B5920200060D8B5 /* jp.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +138,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B0E607E2B5920200060D8B5 /* jp.json in Resources */,
 				6B0E60772B591F070060D8B5 /* Preview Assets.xcassets in Resources */,
 				6B0E60732B591F070060D8B5 /* Assets.xcassets in Resources */,
 			);
