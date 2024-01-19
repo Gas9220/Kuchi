@@ -9,18 +9,20 @@ import SwiftUI
 
 @main
 struct KuchiApp: App {
+    @AppStorage("appearance") var appearance: Appearance = .automatic
     let userManager = UserManager()
     let challengesViewModel = ChallengesViewModel()
-
+    
     init() {
         userManager.load()
     }
-
+    
     var body: some Scene {
         WindowGroup {
             StarterView()
                 .environmentObject(userManager)
                 .environmentObject(challengesViewModel)
+                .preferredColorScheme(appearance.getColorScheme())
         }
     }
 }
