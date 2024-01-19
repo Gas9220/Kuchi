@@ -61,7 +61,7 @@ class ChallengesViewModel: ObservableObject {
     var numberOfAnswered: Int { return correctAnswers.count }
     @Published var currentChallenge: ChallengeTest?
 
-    private(set) var numberOfQuestions = 6
+    @AppStorage("numberOfQuestions") var numberOfQuestions = 6
 
     init() {
         generateRandomChallenge()

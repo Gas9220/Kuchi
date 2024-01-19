@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @State var numberOfQuestions = 6
+    @EnvironmentObject var challengesViewModel: ChallengesViewModel
     @State var learningEnabled: Bool = true
     @State var dailyReminderEnabled = false
     @State var dailyReminderTime = Date(timeIntervalSince1970: 0)
@@ -40,8 +40,8 @@ struct SettingsView: View {
 
             Section {
                 VStack(alignment: .leading) {
-                    Stepper("Number of questions: \(numberOfQuestions)",
-                            value: $numberOfQuestions,
+                    Stepper("Number of questions: \(challengesViewModel.numberOfQuestions)",
+                            value: $challengesViewModel.numberOfQuestions,
                             in: 3...20)
 
                     Text("Any change will affect the next game")
@@ -84,4 +84,5 @@ struct SettingsView: View {
 
 #Preview {
     SettingsView()
+        .environmentObject(ChallengesViewModel())
 }

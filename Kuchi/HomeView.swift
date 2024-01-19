@@ -20,7 +20,6 @@ struct HomeView: View {
                 userName: $userManager.profile.name,
                 numberOfAnswered: .constant(challengesViewModel.numberOfAnswered)
             )
-            .environment(\.questionsPerSessions, challengesViewModel.numberOfQuestions)
             .tabItem {
                 VStack {
                     Image(systemName: "rectangle.dock")
