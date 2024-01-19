@@ -11,7 +11,7 @@ struct ScoreView: View {
 
     let numberOfQuestions: Int
 
-    @State var numberOfAnswered = 0
+    @Binding var numberOfAnswered: Int
 
     var body: some View {
         HStack {
@@ -24,5 +24,5 @@ struct ScoreView: View {
 }
 
 #Preview {
-    ScoreView(numberOfQuestions: 5)
+    ScoreView(numberOfQuestions: 5, numberOfAnswered: .constant(5))
 }

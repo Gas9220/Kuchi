@@ -9,9 +9,9 @@ import SwiftUI
 
 struct ChallengeView: View {
     let challengeTest: ChallengeTest
-    
+    @Binding var numberOfAnswered: Int
     @State var showAnswers = false
-    
+
     var body: some View {
         VStack {
             Button(action: {
@@ -21,7 +21,7 @@ struct ChallengeView: View {
                     .frame(height: 300)
             }
 
-            ScoreView(numberOfQuestions: 5)
+            ScoreView(numberOfQuestions: 5, numberOfAnswered: $numberOfAnswered)
 
             if showAnswers {
                 Divider()
@@ -42,6 +42,6 @@ struct ChallengeView: View {
         ),
         answers: ["Thank you", "Hello", "Goodbye"]
     )
-    
-    return ChallengeView(challengeTest: challengeTest)
+
+    return ChallengeView(challengeTest: challengeTest, numberOfAnswered: .constant(0))
 }

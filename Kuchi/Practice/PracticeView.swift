@@ -10,10 +10,11 @@ import SwiftUI
 struct PracticeView: View {
     @Binding var challengeTest: ChallengeTest?
     @Binding var userName: String
-    
+    @Binding var numberOfAnswered: Int
+
     var body: some View {
         if challengeTest != nil {
-            ChallengeView(challengeTest: challengeTest!)
+            ChallengeView(challengeTest: challengeTest!, numberOfAnswered: $numberOfAnswered)
         } else {
             CongratulationsView(userName: userName)
         }
@@ -27,5 +28,5 @@ struct PracticeView: View {
         answers: ["Thank you", "Hello", "Goodbye"]
     )
     
-    return PracticeView(challengeTest: .constant(challengeTest), userName: .constant("Tom Swift"))
+    return PracticeView(challengeTest: .constant(challengeTest), userName: .constant("Tom Swift"), numberOfAnswered: .constant(0))
 }
