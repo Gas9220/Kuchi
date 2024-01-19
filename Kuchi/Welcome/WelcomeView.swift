@@ -19,6 +19,7 @@ struct WelcomeView: View {
                 userName: $userManager.profile.name,
                 numberOfAnswered: .constant(challengesViewModel.numberOfAnswered)
             )
+            .environment(\.questionsPerSessions, challengesViewModel.numberOfQuestions)
         } else {
             ZStack {
                 WelcomeBackgroundImage()
