@@ -9,25 +9,49 @@ import SwiftUI
 
 struct ChallengeView: View {
     let challengeTest: ChallengeTest
+    @Environment(\.verticalSizeClass) var verticalSizeClass
     @Binding var numberOfAnswered: Int
     @State var showAnswers = false
 
     var body: some View {
-        VStack {
-            Button(action: {
-                showAnswers.toggle()
-            }) {
-                QuestionView(question: challengeTest.challenge.question)
-                    .frame(height: 300)
+        if verticalSizeClass == .compact {
+            VStack {
+                HStack {
+                    Button(action: {
+                        showAnswers = !showAnswers
+                    }) {
+                        QuestionView(
+                            question: challengeTest.challenge.question)
+                    }
+                    if showAnswers {
+                        Divider()
+                        ChoicesView(challengeTest: challengeTest)
+                    }
+                }
+                ScoreView(
+                    numberOfQuestions: 5,
+                    numberOfAnswered: $numberOfAnswered
+                )
             }
-
-            ScoreView(numberOfQuestions: 5, numberOfAnswered: $numberOfAnswered)
-
-            if showAnswers {
-                Divider()
-                ChoicesView(challengeTest: challengeTest)
+        } else {
+            VStack {
+                Button(action: {
+                    showAnswers = !showAnswers
+                }) {
+                    QuestionView(
+                        question: challengeTest.challenge.question)
                     .frame(height: 300)
-                    .padding()
+                }
+                ScoreView(
+                    numberOfQuestions: 5,
+                    numberOfAnswered: $numberOfAnswered
+                )
+                if showAnswers {
+                    Divider()
+                    ChoicesView(challengeTest: challengeTest)
+                        .frame(height: 300)
+                        .padding()
+                }
             }
         }
     }
