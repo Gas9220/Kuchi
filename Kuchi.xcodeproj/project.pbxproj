@@ -31,6 +31,7 @@
 		6B0E60A72B593FFF0060D8B5 /* ChoicesRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0E60A62B593FFF0060D8B5 /* ChoicesRowView.swift */; };
 		6B0E60A92B5940FD0060D8B5 /* StarterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0E60A82B5940FD0060D8B5 /* StarterView.swift */; };
 		6B0E60AB2B59426B0060D8B5 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0E60AA2B59426B0060D8B5 /* HistoryView.swift */; };
+		6BAA01072B5A80DA0077DB59 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAA01062B5A80DA0077DB59 /* ScoreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		6B0E60A62B593FFF0060D8B5 /* ChoicesRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoicesRowView.swift; sourceTree = "<group>"; };
 		6B0E60A82B5940FD0060D8B5 /* StarterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarterView.swift; sourceTree = "<group>"; };
 		6B0E60AA2B59426B0060D8B5 /* HistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		6BAA01062B5A80DA0077DB59 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				6B0E60A62B593FFF0060D8B5 /* ChoicesRowView.swift */,
 				6B0E60A02B593ED30060D8B5 /* PracticeView.swift */,
 				6B0E609C2B593BE80060D8B5 /* CongratulationsView.swift */,
+				6BAA01062B5A80DA0077DB59 /* ScoreView.swift */,
 			);
 			path = Practice;
 			sourceTree = "<group>";
@@ -247,6 +250,7 @@
 				6B0E608C2B59270C0060D8B5 /* Profile.swift in Sources */,
 				6B0E60842B5920D60060D8B5 /* WelcomeView.swift in Sources */,
 				6B0E60942B5928450060D8B5 /* WelcomeMessageView.swift in Sources */,
+				6BAA01072B5A80DA0077DB59 /* ScoreView.swift in Sources */,
 				6B0E60AB2B59426B0060D8B5 /* HistoryView.swift in Sources */,
 				6B0E609F2B593C950060D8B5 /* ChallengesViewModel.swift in Sources */,
 				6B0E60922B5928390060D8B5 /* LogoImage.swift in Sources */,
