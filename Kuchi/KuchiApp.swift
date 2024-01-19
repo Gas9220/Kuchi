@@ -18,9 +18,10 @@ struct KuchiApp: App {
 
     var body: some Scene {
         WindowGroup {
-            StarterView()
-                .environmentObject(userManager)
-                .environmentObject(challengesViewModel)
+            SettingsView()
+//            StarterView()
+//                .environmentObject(userManager)
+//                .environmentObject(challengesViewModel)
         }
     }
 }
