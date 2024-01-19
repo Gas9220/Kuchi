@@ -10,10 +10,11 @@ import SwiftUI
 struct SettingsView: View {
     @EnvironmentObject var challengesViewModel: ChallengesViewModel
     @State var learningEnabled: Bool = true
-    @State var dailyReminderEnabled = false
+    @AppStorage("dailyReminderEnabled") var dailyReminderEnabled = false
     @State var dailyReminderTime = Date(timeIntervalSince1970: 0)
+    @AppStorage("dailyReminderTime") var dailyReminderTimeShadow: Double = 0
     @State var cardBackgroundColor: Color = .red
-    @State var appearance: Appearance = .automatic
+    @AppStorage("appearance") var appearance: Appearance = .automatic
 
     var body: some View {
         List {
@@ -63,8 +64,12 @@ struct SettingsView: View {
 
                     DatePicker("", selection: $dailyReminderTime, displayedComponents: .hourAndMinute)
                         .disabled(!dailyReminderEnabled)
-                        .onChange(of: dailyReminderTime) { _, _ in
+                        .onChange(of: dailyReminderTime) { _, newValue in
+                            dailyReminderTimeShadow = newValue.timeIntervalSince1970
                             configureNotification()
+                        }
+                        .onAppear {
+                            dailyReminderTime = Date(timeIntervalSince1970: dailyReminderTimeShadow)
                         }
                 }
             } header: {
