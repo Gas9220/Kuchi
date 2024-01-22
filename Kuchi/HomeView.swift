@@ -15,6 +15,15 @@ struct HomeView: View {
 
     var body: some View {
         TabView(selection: $selectedTab) {
+            LearnView()
+                .tabItem {
+                    VStack {
+                        Image(systemName: "bookmark")
+                        Text("Learn")
+                    }
+                }
+                .tag(0)
+            
             PracticeView(
                 challengeTest: $challengesViewModel.currentChallenge,
                 userName: $userManager.profile.name,
