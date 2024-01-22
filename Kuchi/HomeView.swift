@@ -11,19 +11,23 @@ struct HomeView: View {
     @EnvironmentObject var userManager: UserManager
     @EnvironmentObject var challengesViewModel: ChallengesViewModel
 
+    @AppStorage("learningEnabled") var learningEnabled: Bool = true
+
     @State var selectedTab = 0
 
     var body: some View {
         TabView(selection: $selectedTab) {
-            LearnView()
-                .tabItem {
-                    VStack {
-                        Image(systemName: "bookmark")
-                        Text("Learn")
+            if learningEnabled {
+                LearnView()
+                    .tabItem {
+                        VStack {
+                            Image(systemName: "bookmark")
+                            Text("Learn")
+                        }
                     }
-                }
-                .tag(0)
-            
+                    .tag(0)
+            }
+
             PracticeView(
                 challengeTest: $challengesViewModel.currentChallenge,
                 userName: $userManager.profile.name,
