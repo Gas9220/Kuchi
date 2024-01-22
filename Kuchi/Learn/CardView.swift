@@ -12,6 +12,8 @@ struct CardView: View {
 
     let flashCard: FlashCard
 
+    @State private var revealed: Bool = false
+
     init(_ card: FlashCard, cardColor: Binding<Color>) {
         self.flashCard = card
         _cardColor = cardColor
@@ -25,18 +27,30 @@ struct CardView: View {
                 .cornerRadius(12)
             VStack {
                 Spacer()
+
                 Text(flashCard.card.question)
                     .font(.largeTitle)
                     .foregroundColor(.white)
-                Text(flashCard.card.answer)
-                    .font(.caption)
-                    .foregroundColor(.white)
+
+                if revealed {
+                    Text(flashCard.card.answer)
+                        .font(.caption)
+                        .foregroundColor(.white)
+                }
+                
                 Spacer()
             }
         }
         .shadow(radius: 8)
         .frame(width: 320, height: 210)
         .animation(.spring(), value: 0)
+        .gesture(TapGesture()
+            .onEnded {
+                withAnimation(.easeIn) {
+                    revealed.toggle()
+                }
+            }
+        )
     }
 }
 
