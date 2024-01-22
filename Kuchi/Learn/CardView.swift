@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct CardView: View {
+    @Binding var cardColor: Color
+
     let flashCard: FlashCard
 
-    init(_ card: FlashCard) {
+    init(_ card: FlashCard, cardColor: Binding<Color>) {
         self.flashCard = card
+        _cardColor = cardColor
     }
 
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(Color.red)
+                .fill(cardColor)
                 .frame(width: 320, height: 210)
                 .cornerRadius(12)
             VStack {
@@ -39,5 +42,5 @@ struct CardView: View {
 
 #Preview {
     let card = FlashCard(card: Challenge(question: "こんにちわ", pronunciation: "Konnichiwa", answer: "Hello"))
-    return CardView(card)
+    return CardView(card, cardColor: .constant(.red))
 }
