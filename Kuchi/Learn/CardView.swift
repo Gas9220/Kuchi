@@ -13,14 +13,33 @@ struct CardView: View {
     let flashCard: FlashCard
 
     @State private var revealed: Bool = false
+    @State private var offset: CGSize = .zero
 
-    init(_ card: FlashCard, cardColor: Binding<Color>) {
+    typealias CardDrag = (_ card: FlashCard, _ direction: DiscardedDirection) -> Void
+    let dragged: CardDrag
+
+    init(_ card: FlashCard, cardColor: Binding<Color>, onDrag dragged: @escaping CardDrag = {_, _ in }) {
         self.flashCard = card
         _cardColor = cardColor
+        self.dragged = dragged
     }
 
     var body: some View {
-        ZStack {
+        let drag = DragGesture()
+            .onChanged { offset = $0.translation }
+            .onEnded {
+                if $0.translation.width < -100 {
+                    offset = .init(width: -1000, height: 0)
+                    dragged(flashCard, .left)
+                } else if $0.translation.width > 100 {
+                    offset = .init(width: 1000, height: 0)
+                    dragged(flashCard, .right)
+                } else {
+                    offset = .zero
+                }
+            }
+
+        return ZStack {
             Rectangle()
                 .fill(cardColor)
                 .frame(width: 320, height: 210)
@@ -37,13 +56,13 @@ struct CardView: View {
                         .font(.caption)
                         .foregroundColor(.white)
                 }
-                
+
                 Spacer()
             }
         }
         .shadow(radius: 8)
         .frame(width: 320, height: 210)
-        .animation(.spring(), value: 0)
+        .animation(.spring(), value: offset)
         .gesture(TapGesture()
             .onEnded {
                 withAnimation(.easeIn) {
@@ -51,6 +70,8 @@ struct CardView: View {
                 }
             }
         )
+        .offset(offset)
+        .gesture(drag)
     }
 }
 
