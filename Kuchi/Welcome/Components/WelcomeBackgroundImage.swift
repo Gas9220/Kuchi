@@ -12,6 +12,7 @@ struct WelcomeBackgroundImage: View {
         GeometryReader { geometry in
             Image("welcome-background", bundle: nil)
                 .resizable()
+                .accessibilityHidden(true)
                 .aspectRatio(1 / 1, contentMode: .fill)
                 .frame(width: geometry.size.width, alignment: .center)
                 .ignoresSafeArea()
