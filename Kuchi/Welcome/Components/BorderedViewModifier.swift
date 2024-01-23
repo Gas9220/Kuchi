@@ -13,7 +13,7 @@ struct BorderedViewModifier: ViewModifier {
             .padding(
                 EdgeInsets(
                     top: 8, leading: 16, bottom: 8, trailing: 16))
-            .background(Color.white)
+            .background(.background)
             .overlay(
                 RoundedRectangle(cornerRadius: 8)
                     .stroke(lineWidth: 2)
